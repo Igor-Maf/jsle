@@ -91,7 +91,7 @@ var White = function() {
 var Black = function() {
 	this.color = 'Black';
 }
-
+ 
 /* extend animal object with properties for wolf */
 Wolf.prototype = animal;
 
@@ -109,8 +109,24 @@ console.log('');
 console.log( 'Wolf: ' );
 console.log( simpleWolf );
 
+
 console.log( 'White wolf: ' );
+console.log( wolfWhite );
+
+
+var protoWhiteWolf = Object.getPrototypeOf(wolfWhite); // getPrototypeOf не работает в <=IE8
+console.log( 'Имя белого волка, после конкатенации свойства объекта цвета со свойством родительского объекта Wolf: ' );
+protoWhiteWolf.name = wolfWhite.color + ' ' + wolfWhite.name;
 console.log( wolfWhite );
 
 console.log('Black wolf: ');
 console.log( wolfBlack );
+// обладает ли экземпляр объекта wolfBlack на прямую свойстов color
+console.log( wolfBlack.hasOwnProperty('color') ); 
+
+
+// раскладываем объект по свойствам и свойствам протопитов
+for ( var key in wolfBlack ) {
+	if( !wolfBlack.hasOwnProperty(key) ) continue; // если не прямое свойство объекта, то выходим из цикла
+	console.log( key + ': ' +  wolfBlack[key]);
+}
