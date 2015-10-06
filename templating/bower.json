@@ -1,0 +1,17 @@
+{
+  "name": "Catalog of Cars",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Igor-Maf/jsle",
+  "authors": [
+    "Igor-Maf <knjaz092@mail.ru>"
+  ],
+  "description": "Catalog of Cars using js templating and custom filter for search",
+  "license": "MIT",
+  "ignore": [
+    "app/bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}
