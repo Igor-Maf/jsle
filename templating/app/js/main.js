@@ -44,12 +44,12 @@ $(document).ready(function() {
 		age: 41
 	};
 
-	var rendered = new EJS({
+	/* var rendered = new EJS({
 		template: '<h1>Hello <%= name %></h1>'
 				  + '<p>It`s greate that you are <strong><%= age %></strong> years old!</p>'
 	}).render(data);
 
 	console.log(rendered);
 
-	$('#resultDiv').html(rendered);
+	$('#resultDiv').html(rendered); */
 });
