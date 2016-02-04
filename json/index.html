@@ -2,65 +2,27 @@
 <html>
 <head>
 	<title>Work with JSON</title>
+	<style>
+		body {
+			color: #222;
+			font: 100%/1.4 Helvetica, sans-serif;
+		}
+	</style>
 </head>
+
 <body>
-	<h2>Links</h2>
-	<ul id="skills">
+	<h2>Info object with array of subobjects of skills</h2>
+	<ul id="skillsArrayWithObjects">
 		
 	</ul>
 
-	<script>
-		/* Объекты в объектах не считаются упорядоченными.
-		Для упорядоченности используются массивы в объекте. */
-
-		// push or splice properties in object info
-		var info = {
-			"full_name": "Ihor Gevorkyan",
-			"title": "Web developer",
-			"skills": [
-				{ "html": "html5, jade, handlebars" },
-				{ "css": "sass, less, stylus" },
-				{ "php": "laravel, yii, symfony" },
-				{ "js": "jquery, angularjs, typescript" },
-				{ "asd": "asd" }
-			]
-		};
-
-		info.skills.splice(4, 1); // splice используется только для массивов
-		/* второй параметр, в этом случае, не обязателен, так как он указывает, сколько элементов еще удалить после удаляемого, в нашем случае, четвертого. 
-		Если указать (2, 2), то будут удалены объекты с ключем php и второй за ним, с ключем js */
-
-		info.skills.push({
-			"sql": "mysql, postgresql, sql-lite"
-		});
-		console.log(info);
-
-
-		// work with object in object info1 using the for function
-		var info1 = {
-			"full_name": "Ihor Gevorkyan",
-			"title": "Web developer",
-			"skills": {
-				"html": "html5, jade, handlebars",
-				"css": "sass, less, stylus",
-				"php": "laravel, yii, symfony",
-				"js": "jquery, angularjs, typescript",
-				"asd": "asd"
-			}
-		};
+	<hr>
+	
+	<h2>Info object with subobject of skills</h2>
+	<ul id="skillsObjects">
 		
+	</ul>
 
-		var output = "";
-
-		for(key in info1.skills) {
-			if (info1.skills.hasOwnProperty(key)) {
-				output += '<li><a href="' + info1.skills[key] + '">' + key + '</a></li>';
-			} // if the links has the key property
-		} // for...go through each link
-
-		var update = document.getElementById('skills');
-		update.innerHTML = output;
-
-	</script>
+	<script src="app.js"></script>
 </body>
 </html>
