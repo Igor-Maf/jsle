@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Summary of array methods</title>
+  </head>
+  <body>
+    <div id="lessons"></div>
+
+    <script>
+      (function() {
+        'use strict';
+
+        let lessons = [{
+              title: 'Lesson #1',
+              views: 195,
+              tags: ['Frontend', 'HTML', 'CSS']
+            }, {
+              title: 'Lesson #2',
+              views: 2005,
+              tags: ['Frontend', 'Bootstrap', 'JS']
+            }, {
+              title: 'Lesson #3',
+              views: 205,
+              tags: ['Backend', 'PHP', 'Apache']
+            }, {
+              title: 'Lesson #4',
+              views: 1000,
+              tags: ['Frontend', 'ES2015', 'Typescript']
+            }];
+
+        let minViews = 200,
+            searchTerm = 'Frontend';
+
+        lessons.forEach(function(lesson) {
+          console.log(lesson.tags.indexOf(searchTerm)); // has the tag 'Frontend'?
+        });
+
+        let filtered = lessons
+            // .filter(lesson => lesson.tags.indexOf(searchTerm) > -1) // only lessons with tag 'Frontend'
+            // .filter(lesson => lesson.views > minViews) // only lessons with tag 'Frontend' and views more than '200'
+            .filter(lesson => lesson.tags.indexOf(searchTerm) > -1 && lesson.views > minViews)
+            .sort((a, b) => b.views - a.views) // sort by quantity of views
+            .map(lesson => `<li>${lesson.title}</li>`)
+            .join('\n');
+
+        console.log(`<ul>${filtered}</ul>`);
+
+        let wrapper = document.getElementById('lessons');
+        wrapper.innerHTML = `<ul>${filtered}</ul>`;
+      })();
+    </script>
+  </body>
+</html>

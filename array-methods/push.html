@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Push method</title>
+  </head>
+  <body>
+
+    <input id="input">
+
+    <button id="add">Add</button>
+
+    <ul id="animals">
+      <!-- animals -->
+    </ul>
+
+    <script>
+      (function() {
+        'use strict';
+
+        const animals = ["Cat", "Dog"];
+        animals.push("Hourse", "Elephant");
+        console.log('Push two new items to array: ', animals);
+
+        const wishlist = ["Crocodile", "Tourtoise"];
+        animals.push.apply(animals, wishlist); // with apply it`s equal to animals.push("Crocodile", "Tourtoise")
+        console.log('Push array to array using apply function: ', animals);
+      })();
+
+      var Observer = (function() {
+        const input = document.getElementById('input');
+        const btn = document.getElementById('add');
+        const list = document.getElementById('animals');
+
+        const animals = [];
+
+        function render() {
+          list.innerHTML = animals.map(animal => `<li>${animal}</li>`).join('');
+        }
+
+        function init() {
+          console.log(btn);
+          console.log(input);
+
+          btn.addEventListener('click', function(e) {
+            if(input.value.length) {
+              animals.push(input.value);
+              input.value = ''; // reset input value
+              render();
+            }
+          });
+        }
+
+        init();
+      })();
+
+    </script>
+  </body>
+</html>
