@@ -1,0 +1,12 @@
+.output div {
+	float: left;
+	width: 5px;
+	height: 5px;
+	border: 1px solid #0094ff;
+	border-radius: 3px;
+	margin: 1px;
+}
+
+.clear {
+	clear: left;
+}
