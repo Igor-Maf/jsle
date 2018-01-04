@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Arrays methods</title>
+  </head>
+  <body>
+    <p>Look at console.</p>
+    <script>
+      (function() {
+          'use strict';
+
+          /**
+           * Array.prototype.concat();
+           */
+          let a = [1, 2, 3];
+          let b = a.concat(1, [5, 6, 7], [1, 2, 3]); // b is a new array
+
+          console.log('After concat: ', b);
+
+
+          let c = [{
+            name: 'Ihor'
+          }, {
+            name: 'Alex'
+          }];
+
+          let d = [{
+            name: 'Ivan'
+          }, {
+            name: 'Nick'
+          }];
+
+          c.concat(d).forEach(function(person) {
+            console.log(person.name);
+          });
+
+          // for(let i of [9, 8, 7, 6]) {
+          //   console.log(i);
+          // }
+
+          /**
+           * Array.prototype.filter();
+           */
+          let f = b.filter(x => x > 3); // f is a new array
+          //  var f = e.filter(function(x) {
+          //    return x > 3;
+          //  });
+
+          console.log('Filtered array of numbers: ', f);
+
+          let people = [{
+            name: 'Ihor',
+            position: 'Frontend developer',
+            skills: ['HTML5', 'CSS3', 'Bootstrap', 'JS', 'jQuery', 'AngularJS', 'PHP', 'MySQL', 'Wordpress'],
+            isDeveloper: true
+          }, {
+            name: 'Ivan',
+            position: 'Founder',
+            skills: []
+          }, {
+            name: 'Alexandr',
+            position: 'Junior frontend developer',
+            skills: ['HTML5', 'CSS3', 'JS', 'jQuery', 'Bootstrap'],
+            isDeveloper: true
+          }];
+
+          let developers = people.filter(person => person.skills.length);
+          console.log('1Type: The developers: ', developers);
+
+          developers = people.filter(person => person.isDeveloper);
+          console.log('2Type: The developers: ', developers);
+      })();
+    </script>
+  </body>
+</html>
