@@ -17,7 +17,6 @@
 			return (`${Math.random().toFixed().toString().replace("0.", "")}${Date.now()}`);
 		}
 
-
 		/**
 		 * @param {*} key
 		 * @param {Object} object
@@ -94,7 +93,6 @@
 
 			return proxy;
 		}
-
 	}
 
 
@@ -103,10 +101,8 @@
 
 	let object = {key1: "data", key2: 1};
 
-
 	let wrapper = ObserveStorage.add('jimbo', object); // return Proxy
-
+	
 	console.log(wrapper);
-
 
 })();
